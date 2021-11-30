@@ -1,3 +1,10 @@
+Reasons to use it!
+
+- Generating statically generated HTML and then giving client-side React to do whatever it needs to do.
+- Providing building blocks instead of making a new component for each project.
+- Gør det at lave en side sjovere ved at gøre det enkelt og let med de inbyggede features
+- 
+
 Step by step guide to Gatsby
 
 *** Opstart ***
@@ -35,4 +42,27 @@ også er din nye side klar.
 
  *** Lad os lave en navbar så vi let kan komme rundt på siden ***
 
- 
+ - Som man kender det fra react skal der nu laves en components mappe, den skal ligge i src mappen og det er der man f.eks ligger sin navbar.
+
+ - så nede i den nye componentsmappe, lav en ny fil der hedder Navbar.js eller Navigation.js efter hvad man foretrækker.
+
+ - Det kan selv sættes op men her er min kode hvis man er usikker på hvordan det kan se ud:
+import { Link } from 'gatsby'
+import React from 'react'
+
+export default function Navbar() {
+    return (
+        <nav>
+            <h1>Web Warrior</h1>
+            <div className="links">
+                <Link to="/">Home</Link>
+                <Link to="/about">How to get started with Gatsby</Link>
+                <Link to="/projects">Portfolio Projects</Link>
+            </div>
+        </nav>
+    )
+}
+
+ - Her har jeg lavet min nav og i den her opgave en div med links, Link bliver importeret fra gatsby og brugt for at alt linking bliver udført i browseren og vi ikke sender nye `request` efter nye sider.
+
+ - Så tager vi vores navbar og putter udenom alle de siger der skal bruge den, vores home, about og projects sider. 
