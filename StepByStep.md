@@ -1,17 +1,38 @@
 Step by step guide to Gatsby
 
- - Først installeres Gatsby globalt ved at åbne en terminal og skrive: npm install -g gatsby-cli
+*** Opstart ***
 
- - Derefter skab en ny Gatsby mappe, det kan gøres ved at skrive: gatsby new mappensnavn men man kan også bruge en af Gatsby´s templates.
-    Så skriv i terminalen: npx gatsby new gatsby-project https://github.com/gatsbyjs/gatsby-starter-hello-world
+ - Åben en terminal på din pc og installer gatsby globalt ved at skrive: npm install -g gatsby-cli
 
- - Ned i den nye mappe med terminalen, gøres ved at skrive cd gatsby-project
+ - Lav en ny mappe til dit gatsby projekt ved at skrive: npx gatsby new gatsby-project https://github.com/gatsbyjs/gatsby-starter-hello-world og find derefter vejen ned i mappen
 
- - Skriv derefter code . og den åbner din fil i vscode og du er klar til at kode 
+ - Skriv derefter code . og dit projekt skulle gerne starte op i vscode også er du klar til at kode.
 
- - Hvis du vælger en template ligger der en masse filer i, det er som i react at dine filer ligger i src. Det er smart at bruge en template første gang så man får en ide af hvordan det skal se ud næste gang hvis du starter et nyt projekt selv.
+ - For at kunne se hvad du laver i en browser, start en terminal op og skriv: gatsby develop det skal skrives hver gang du starter din localhost, når du bruger gatsby vil din localhost ligge på localhost8000
+
+*** Sider og Routes ***
+
+ - For at lave en ny side, lav en ny fil i pages mappen og kald den f.eks about. Det kan være en god ide at installere en exstension, ved navn ES7 React/Redux/GraphQL/React-Native snippets. Med det installeret skal man bare skrive rfc også skulle det gerne se sådan ud: 
+import React from 'react'
+
+export default function about() {
+    return (
+        <div>
+            
+        </div>
+    )
+}
+også er din nye side klar.
+
+ - Tilføj en h1 med noget text så du kan se hvilken side du er på ved næste trin.
+
+ - Det gode ved gatsby er at man ikke skal igang med en masse router, det kan den selv finde ruterne, så hvis man oppe ved localhost8000 skriver localhost8000/about så finder den helt selv hen til siden uden ydeligere kode man skal sidde og skrive.
+
+ - Når nu gatsby er lavet med egen router på den måde, så vil din index altid være din "home", eller din baseroute. Men hvis man nu vil lave noget som ser sådan her ud localhost8000/projects/test vil du kunne lave en mappe i din pages mappe der hedder projects, den vil være din subroute og sådan laver man subdirectories. Hvis man laver en index inde i den mappe vil det så være projects "home" side.
+
+ - I tilfældet at nogen på vores hjemmeside prøver at finde noget der ikke eksistere kommer en 404 op, den side kan vi lave til vores egen på følgene måde. Inde i pages mappen, lav en 404.js og skriv rfc, enter og voila du er klar til at designe din egen ups side med links tilbage til siden.
+
+
+ *** Lad os lave en navbar så vi let kan komme rundt på siden ***
+
  
- - Start op en terminal i VSCode og skriv gatsby develop, det vil starte projektet så du kan se hvad du bygger i din browser ved at gå på localhost:8000
- Efter du har gjort dette første gang får du en public mappe hvori en index.html ligger i.
-
- - 
