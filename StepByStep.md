@@ -65,4 +65,45 @@ export default function Navbar() {
 
  - Her har jeg lavet min nav og i den her opgave en div med links, Link bliver importeret fra gatsby og brugt for at alt linking bliver udført i browseren og vi ikke sender nye `request` efter nye sider.
 
- - Så tager vi vores navbar og putter udenom alle de siger der skal bruge den, vores home, about og projects sider. 
+ - Så tager vi vores navbar og putter udenom alle de siger der skal bruge den, vores home, about og projects sider, det kan gøres super enkelt med et Layout components.
+
+ - Så i components mappen laves en Layoutfil som skal komme til at se sådan her ud:
+import React from 'react';
+import Navbar from './Navbar';
+
+export default function Layout({ children }) {
+    return (
+        <div className="layout">
+            <Navbar />
+            <div className="content">
+                { /* content for each page */}
+                { children }
+            </div>
+            <footer>
+                <p>Copyright 2021 Web Warrior</p>
+            </footer>
+        </div>
+    )
+}  
+Bagefter skal Layout wrappes rundt om hver pagesfil som sådan her:
+
+import React from 'react';
+import Layout from '../../components/Layout';
+
+export default function Projects() {
+    return (
+        <Layout>
+        <div>
+            <h2>Portfolio</h2>
+            <h3>Projects & Websites I´ve created</h3>
+        </div>
+        </Layout>
+    )
+}
+også voila har man en nav og footer der wrapper hver side, så let takket være gatsby.
+
+
+
+*** Tid til styling med css *** 
+
+ - 
