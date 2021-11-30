@@ -106,4 +106,81 @@ også voila har man en nav og footer der wrapper hver side, så let takket være
 
 *** Tid til styling med css *** 
 
- - 
+ - Start med at lave en mappe til dine css filer med stylingen, mappen skal ligge i src mappen.
+
+ - Lav en ny fil der hedder global.css det vil være alt din globale styling som font og * styling:
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    text-decoration: none;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    background: radial-gradient(at top left, rgba(255,182,193) 0%, rgba(205,92,92) 100%);
+    background-repeat: no-repeat;
+    font-family: 'Roboto', 'Courier New', Courier, monospace;
+} 
+
+ - Derefter importer din css i Loayout filen øverst.
+
+ - Hvis du vil lave en css fil til specifik pagesfil: filen skal laves nede i din styles mappe, min hedder home.module.css det er vigtigt den hedder .module.css for at gatsby ved hvad det er for en fil.
+
+ - Derefter kan du putte hvad du vil i filen, når den skal tilføjes til siden skal filen importeres i toppen og se sådan her ud: import * as styles from "../styles/home.module.css";
+
+ - Derefter skal din styles på den der skal styles, min side ser sådan her ud: 
+export default function Home() {
+
+  return (
+    <>
+    <Layout>
+      <section className={styles.header}>
+        <div>
+          <h2>Design</h2>
+          <h3>Develop & Deploy</h3>
+          <p>UX designer & web developer based in Denmark.</p>
+          <Link className={styles.btn} to="/projects">My Portfolio Projects</Link>
+        </div>
+      </section>
+    </Layout>
+    </>
+  )
+}
+
+og min css fil ser sådan her ud: 
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.header h2 {
+    font-size: 4em;
+}
+
+.header h3 {
+    font-size: 3em;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background: #D42990;
+    padding:10px 16px;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+
+og så, så let som det kan være har vi flere sider vi kan navigere imellem og nu kan de styles.
